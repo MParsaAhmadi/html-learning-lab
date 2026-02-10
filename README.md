@@ -4,7 +4,7 @@
 [![HTML5](https://img.shields.io/badge/HTML5-Valid-E34F26?logo=html5&logoColor=white)](https://validator.w3.org/)
 [![Accessibility](https://img.shields.io/badge/A11y-WCAG%202.1-green?logo=accessibility)](https://www.w3.org/WAI/WCAG21/quickref/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![GitHub Pages](https://img.shields.io/badge/Demo-Live-blue?logo=github)](https://yourusername.github.io/html-learning-resource)
+[![GitHub Pages](https://img.shields.io/badge/Demo-Live-blue?logo=github)](https://mparsaahmadi.github.io/html-learning-lab/)
 
 **A comprehensive, single-file HTML learning resource — AI-generated, human-verified, and designed to teach through real, documented code.**
 
@@ -50,7 +50,7 @@ This project was generated using **Claude (Anthropic)** as an educational experi
 
 ## 🚀 Live Demo & Quick Start
 
-**[▶ View Live Demo](https://yourusername.github.io/html-learning-resource)**
+**[▶ View Live Demo](https://mparsaahmadi.github.io/html-learning-lab/)**
 
 ```bash
 # Clone and open in 30 seconds
@@ -179,7 +179,7 @@ That's it. One file. Zero dependencies. Maximum learning.
 **Option 1: GitHub Pages (recommended)**
 1. Fork this repository
 2. Go to Settings → Pages → Source: `main` branch
-3. Your site is live at `https://yourusername.github.io/html-learning-resource`
+3. Your site is live at `https://mparsaahmadi.github.io/html-learning-lab/`
 
 **Option 2: Local**
 ```bash
