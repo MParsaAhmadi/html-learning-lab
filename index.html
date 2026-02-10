@@ -1,0 +1,2686 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════════╗
+  ║              THE ULTIMATE HTML LEARNING RESOURCE                    ║
+  ║                                                                    ║
+  ║  Author:  HTML Education Project                                   ║
+  ║  Version: 1.0                                                      ║
+  ║  License: Free for educational use                                 ║
+  ║                                                                    ║
+  ║  ── HOW TO STUDY THIS CODE ──                                      ║
+  ║                                                                    ║
+  ║  1. READ TOP-TO-BOTTOM: This file is organized like a textbook.    ║
+  ║     Each section builds on the previous one.                       ║
+  ║                                                                    ║
+  ║  2. READ THE COMMENTS: Every section has detailed comments         ║
+  ║     explaining what each element does and WHY it's used.           ║
+  ║                                                                    ║
+  ║  3. EXPERIMENT: Open this in a browser AND a code editor.          ║
+  ║     Try changing elements to see what happens.                     ║
+  ║                                                                    ║
+  ║  4. VALIDATE: Paste this code into https://validator.w3.org        ║
+  ║     to confirm it follows web standards.                           ║
+  ║                                                                    ║
+  ║  5. USE DEVTOOLS: Right-click → "Inspect" in your browser         ║
+  ║     to explore the DOM tree this HTML creates.                     ║
+  ║                                                                    ║
+  ║  6. SECTIONS COVERED:                                              ║
+  ║     • Document Structure & Meta Tags                               ║
+  ║     • Semantic HTML5 Elements                                      ║
+  ║     • Text Content & Formatting                                    ║
+  ║     • Links & Navigation                                           ║
+  ║     • Lists (Ordered, Unordered, Description)                      ║
+  ║     • Tables with Proper Semantics                                 ║
+  ║     • Forms & Input Types                                          ║
+  ║     • Multimedia (Images, Audio, Video)                            ║
+  ║     • Interactive Elements                                         ║
+  ║     • Accessibility (ARIA, Skip Links, Roles)                      ║
+  ║     • SEO & Structured Data                                        ║
+  ║     • Embedded Content                                             ║
+  ║                                                                    ║
+  ╚══════════════════════════════════════════════════════════════════════╝
+-->
+
+<!--
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ SECTION 0: THE DOCTYPE DECLARATION                                  │
+  │                                                                    │
+  │ The DOCTYPE tells the browser which version of HTML to use.        │
+  │ "<!DOCTYPE html>" means HTML5 — the current standard.              │
+  │ Without it, browsers enter "quirks mode" and render inconsistently.│
+  │                                                                    │
+  │ BEST PRACTICE: Always include DOCTYPE as the very first line.      │
+  │ It is NOT an HTML tag — it's an instruction to the browser.        │
+  └──────────────────────────────────────────────────────────────────────┘
+-->
+
+<!--
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ SECTION 1: THE <html> ROOT ELEMENT                                 │
+  │                                                                    │
+  │ The <html> element is the root of every HTML document.             │
+  │                                                                    │
+  │ IMPORTANT ATTRIBUTES:                                              │
+  │ • lang="en" — Tells browsers and screen readers the page language. │
+  │   This is CRITICAL for accessibility and SEO.                      │
+  │ • dir="ltr" — Text direction: left-to-right (use "rtl" for Arabic,│
+  │   Hebrew, etc.)                                                    │
+  │                                                                    │
+  │ WHY lang MATTERS:                                                  │
+  │ - Screen readers use it to choose the correct pronunciation        │
+  │ - Search engines use it to serve content to the right audience     │
+  │ - Translation tools use it to identify the source language         │
+  └──────────────────────────────────────────────────────────────────────┘
+-->
+<html lang="en" dir="ltr">
+
+<!--
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ SECTION 2: THE <head> ELEMENT — Document Metadata                  │
+  │                                                                    │
+  │ The <head> contains metadata — information ABOUT the page that     │
+  │ doesn't appear in the visible content. It tells browsers, search   │
+  │ engines, and social media platforms how to handle this page.       │
+  │                                                                    │
+  │ Nothing inside <head> is rendered on screen (except <title> in the │
+  │ browser tab).                                                      │
+  └──────────────────────────────────────────────────────────────────────┘
+-->
+<head>
+  <!--
+    CHARACTER ENCODING (must be within first 1024 bytes of the document)
+    UTF-8 supports virtually all characters from all languages.
+    BEST PRACTICE: Always declare charset as the very first element in <head>.
+  -->
+  <meta charset="UTF-8">
+
+  <!--
+    VIEWPORT META TAG — Essential for responsive design
+    • width=device-width: Sets the page width to the device screen width
+    • initial-scale=1.0: Sets the initial zoom level to 100%
+    Without this, mobile devices render pages at desktop width and shrink them.
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    THE <title> ELEMENT
+    • Appears in the browser tab, bookmarks, and search engine results
+    • SEO BEST PRACTICE: Keep it under 60 characters, descriptive, unique per page
+    • ACCESSIBILITY: Screen readers announce this when the page loads
+  -->
+  <title>The Ultimate HTML Learning Resource — Learn HTML from Scratch</title>
+
+  <!--
+    META DESCRIPTION — What search engines show below the title in results
+    • SEO BEST PRACTICE: 150-160 characters, compelling, includes keywords
+    • Not a ranking factor itself, but affects click-through rates
+  -->
+  <meta name="description" content="A comprehensive, self-contained HTML learning resource covering every major HTML element, accessibility, SEO, forms, multimedia, and best practices.">
+
+  <!--
+    ADDITIONAL SEO META TAGS
+    • author: Credits the page creator
+    • keywords: Historically used for SEO (most search engines ignore this now)
+    • robots: Controls search engine crawling behavior
+      - index: Allow this page in search results
+      - follow: Follow links on this page
+  -->
+  <meta name="author" content="HTML Education Project">
+  <meta name="keywords" content="HTML, HTML5, learn HTML, web development, tutorial">
+  <meta name="robots" content="index, follow">
+
+  <!--
+    THEME COLOR — Customizes the browser toolbar on mobile devices
+    This creates a more "app-like" experience on mobile.
+  -->
+  <meta name="theme-color" content="#1e40af">
+
+  <!--
+    OPEN GRAPH META TAGS — Control how this page appears when shared on social media
+    (Facebook, LinkedIn, Discord, etc.)
+    
+    WHY: When someone shares your URL, these tags determine the preview card.
+    Without them, social platforms guess — and often guess wrong.
+  -->
+  <meta property="og:title" content="The Ultimate HTML Learning Resource">
+  <meta property="og:description" content="Learn every HTML element through practical, commented examples.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/html-learning">
+  <meta property="og:image" content="https://example.com/images/html-og-image.png">
+  <meta property="og:locale" content="en_US">
+
+  <!--
+    TWITTER CARD META TAGS — Similar to Open Graph but for Twitter/X
+    • summary_large_image: Shows a big image preview
+    • Other options: summary, app, player
+  -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Ultimate HTML Learning Resource">
+  <meta name="twitter:description" content="Learn every HTML element through practical, commented examples.">
+
+  <!--
+    CANONICAL URL — Tells search engines the "official" URL for this content
+    Prevents duplicate content issues when the same page is accessible via
+    multiple URLs (e.g., with/without www, with tracking parameters).
+  -->
+  <link rel="canonical" href="https://example.com/html-learning">
+
+  <!--
+    FAVICON — The small icon in the browser tab
+    • Modern browsers prefer SVG favicons (scalable, theme-aware)
+    • apple-touch-icon: Used when someone saves the page to their iPhone home screen
+  -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!--
+    PRECONNECT — Performance optimization
+    Tells the browser to establish early connections to important third-party origins.
+    This saves time when resources from these origins are later needed.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <!--
+    INLINE STYLES — Minimal CSS for educational clarity
+    
+    NOTE: In production, you would typically use an external stylesheet:
+    <link rel="stylesheet" href="styles.css">
+    
+    We use inline styles here ONLY to make this file self-contained.
+    The CSS is intentionally minimal — this is an HTML learning resource,
+    not a CSS tutorial. Styles exist only to visually distinguish sections.
+  -->
+  <style>
+    /* Reset & Base */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.7;
+      color: #1e293b;
+      background: #f8fafc;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Skip Link — Hidden until focused via keyboard (Tab key) */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: #1e40af;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0 0 0.5rem 0.5rem;
+      z-index: 1000;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* Header */
+    .site-header {
+      background: linear-gradient(135deg, #1e3a5f, #1e40af);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 0 0 1rem 1rem;
+    }
+    .site-header h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+    .site-header p { opacity: 0.9; font-size: 0.95rem; }
+
+    /* Navigation */
+    .main-nav {
+      background: #1e293b;
+      padding: 0.5rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-radius: 0.5rem;
+      margin: 0.5rem;
+    }
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+    .main-nav a {
+      color: #93c5fd;
+      text-decoration: none;
+      padding: 0.4rem 0.75rem;
+      border-radius: 0.375rem;
+      font-size: 0.85rem;
+      display: block;
+      transition: background 0.2s;
+    }
+    .main-nav a:hover, .main-nav a:focus { background: #334155; color: white; }
+    .main-nav a[aria-current="page"] { background: #2563eb; color: white; font-weight: 600; }
+
+    /* Sections */
+    .content-section {
+      background: white;
+      margin: 1.5rem 0.5rem;
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .content-section h2 {
+      color: #1e40af;
+      font-size: 1.5rem;
+      border-bottom: 3px solid #dbeafe;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .content-section h3 { color: #1e3a5f; margin: 1.5rem 0 0.75rem; font-size: 1.15rem; }
+
+    /* Teaching Notes */
+    .teaching-note {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      font-size: 0.9rem;
+    }
+    .teaching-note strong { color: #92400e; }
+
+    .best-practice {
+      background: #ecfdf5;
+      border-left: 4px solid #10b981;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      font-size: 0.9rem;
+    }
+    .best-practice strong { color: #065f46; }
+
+    .common-mistake {
+      background: #fef2f2;
+      border-left: 4px solid #ef4444;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+      font-size: 0.9rem;
+    }
+    .common-mistake strong { color: #991b1b; }
+
+    .code-label {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #3730a3;
+      font-family: 'Courier New', monospace;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* Example Boxes */
+    .example-box {
+      border: 2px dashed #cbd5e1;
+      padding: 1.25rem;
+      margin: 1rem 0;
+      border-radius: 0.5rem;
+      background: #f8fafc;
+    }
+    .example-box-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { padding: 0.75rem 1rem; text-align: left; border: 1px solid #e2e8f0; }
+    th { background: #f1f5f9; font-weight: 600; color: #334155; }
+    caption { font-weight: 600; margin-bottom: 0.5rem; font-size: 1rem; color: #475569; caption-side: top; text-align: left; }
+    tbody tr:hover { background: #f8fafc; }
+
+    /* Forms */
+    fieldset { border: 2px solid #e2e8f0; border-radius: 0.5rem; padding: 1.5rem; margin: 1rem 0; }
+    legend { font-weight: 700; color: #1e40af; padding: 0 0.5rem; font-size: 1rem; }
+    label { display: block; font-weight: 500; margin-bottom: 0.25rem; color: #334155; font-size: 0.9rem; }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.375rem;
+      font-size: 0.95rem;
+      font-family: inherit;
+      margin-bottom: 1rem;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid #3b82f6;
+      outline-offset: 1px;
+      border-color: #3b82f6;
+    }
+    input[type="checkbox"], input[type="radio"] { width: auto; margin-right: 0.5rem; }
+    button, input[type="submit"] {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 0.65rem 1.5rem;
+      border-radius: 0.375rem;
+      font-size: 0.95rem;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    button:hover, input[type="submit"]:hover { background: #1d4ed8; }
+    button:focus-visible, input[type="submit"]:focus-visible {
+      outline: 3px solid #93c5fd;
+      outline-offset: 2px;
+    }
+
+    /* Figure */
+    figure {
+      margin: 1rem 0;
+      text-align: center;
+    }
+    figcaption {
+      font-size: 0.85rem;
+      color: #64748b;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    /* Blockquote */
+    blockquote {
+      border-left: 4px solid #a5b4fc;
+      margin: 1rem 0;
+      padding: 1rem 1.5rem;
+      background: #eef2ff;
+      border-radius: 0 0.5rem 0.5rem 0;
+      font-style: italic;
+      color: #3730a3;
+    }
+    blockquote footer { font-style: normal; font-size: 0.85rem; color: #6366f1; margin-top: 0.5rem; }
+
+    /* Lists */
+    ul, ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+    li { margin-bottom: 0.25rem; }
+    dl { margin: 0.5rem 0; }
+    dt { font-weight: 700; color: #1e3a5f; margin-top: 0.75rem; }
+    dd { margin-left: 1.5rem; color: #475569; }
+
+    /* Details/Summary */
+    details {
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      margin: 0.75rem 0;
+      overflow: hidden;
+    }
+    summary {
+      padding: 0.75rem 1rem;
+      background: #f1f5f9;
+      cursor: pointer;
+      font-weight: 500;
+      color: #1e40af;
+    }
+    summary:hover { background: #e2e8f0; }
+    details[open] summary { border-bottom: 1px solid #e2e8f0; }
+    details > div, details > p { padding: 1rem; }
+
+    /* Progress & Meter */
+    progress, meter { width: 100%; height: 1.25rem; margin: 0.25rem 0; }
+
+    /* Code inline */
+    code {
+      background: #f1f5f9;
+      padding: 0.15rem 0.4rem;
+      border-radius: 0.25rem;
+      font-size: 0.88em;
+      color: #be185d;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 1.25rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin: 1rem 0;
+    }
+    pre code { background: none; color: inherit; padding: 0; }
+
+    /* Footer */
+    .site-footer {
+      background: #1e293b;
+      color: #cbd5e1;
+      padding: 2rem 1.5rem;
+      border-radius: 1rem 1rem 0 0;
+      margin: 1.5rem 0.5rem 0;
+    }
+    .site-footer h2, .site-footer h3 { color: #93c5fd; border: none; }
+    .site-footer a { color: #93c5fd; }
+    .site-footer a:hover { color: white; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .footer-grid ul { list-style: none; padding: 0; }
+    .footer-grid li { margin-bottom: 0.35rem; }
+
+    /* Accessibility: focus visible for all interactive elements */
+    a:focus-visible {
+      outline: 3px solid #3b82f6;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .content-section { padding: 1.25rem; margin: 1rem 0.25rem; }
+      .main-nav ul { flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .site-header h1 { font-size: 1.35rem; }
+    }
+
+    /* Print Styles — demonstrates the <style> media capability */
+    @media print {
+      .main-nav, .skip-link { display: none; }
+      body { max-width: 100%; font-size: 12pt; }
+      .content-section { break-inside: avoid; border: 1px solid #ccc; box-shadow: none; }
+    }
+
+    /* Animations for interactive demo */
+    .dialog-box {
+      border: none;
+      border-radius: 1rem;
+      padding: 2rem;
+      max-width: 500px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+    }
+    .dialog-box::backdrop {
+      background: rgba(0,0,0,0.5);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #dbeafe, #ede9fe);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin: 0.5rem;
+      border-radius: 1rem;
+    }
+    .hero h2 { color: #1e3a5f; border: none; font-size: 1.75rem; margin-bottom: 0.5rem; }
+    .hero p { max-width: 700px; margin: 0 auto; color: #475569; font-size: 1.05rem; }
+
+    /* Grid for form layout */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0 1.5rem;
+    }
+
+    /* Aside */
+    .sidebar-note {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    /* Section numbering */
+    .section-number {
+      display: inline-block;
+      background: #1e40af;
+      color: white;
+      width: 2rem;
+      height: 2rem;
+      line-height: 2rem;
+      text-align: center;
+      border-radius: 50%;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* Keyboard shortcut styling */
+    kbd {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 3px;
+      padding: 0.1rem 0.4rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85em;
+      box-shadow: 0 1px 0 #94a3b8;
+    }
+
+    /* Address styling */
+    address { font-style: normal; line-height: 1.8; }
+
+    /* Abbreviation */
+    abbr[title] {
+      text-decoration: underline dotted;
+      cursor: help;
+    }
+
+    /* Mark */
+    mark {
+      background: #fef08a;
+      padding: 0.1rem 0.3rem;
+      border-radius: 2px;
+    }
+  </style>
+
+  <!--
+    STRUCTURED DATA (JSON-LD) — Schema.org markup for SEO
+    
+    This tells search engines WHAT this page is in a structured,
+    machine-readable format. Google uses this to create rich snippets
+    in search results (e.g., star ratings, FAQ dropdowns, breadcrumbs).
+    
+    JSON-LD is the recommended format (over microdata or RDFa).
+    The script type "application/ld+json" tells browsers NOT to execute this
+    as JavaScript — it's purely for search engine consumption.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "The Ultimate HTML Learning Resource",
+    "description": "A comprehensive HTML learning resource covering every major HTML element.",
+    "educationalLevel": "Beginner",
+    "learningResourceType": "tutorial",
+    "inLanguage": "en",
+    "author": {
+      "@type": "Organization",
+      "name": "HTML Education Project"
+    },
+    "datePublished": "2024-01-01",
+    "dateModified": "2024-12-01"
+  }
+  </script>
+</head>
+
+<!--
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │ SECTION 3: THE <body> ELEMENT                                      │
+  │                                                                    │
+  │ Everything visible on the page goes inside <body>.                 │
+  │ There can only be ONE <body> element per document.                 │
+  │                                                                    │
+  │ The itemscope and itemtype attributes are Schema.org microdata —   │
+  │ another way (alongside JSON-LD) to add structured data.            │
+  │ We include both methods for educational purposes.                  │
+  └──────────────────────────────────────────────────────────────────────┘
+-->
+<body itemscope itemtype="https://schema.org/WebPage">
+
+  <!--
+    SKIP NAVIGATION LINK — Accessibility Essential
+    
+    Screen reader and keyboard users would have to tab through every
+    navigation link on every page load without this. The skip link lets
+    them jump directly to the main content.
+    
+    HOW IT WORKS:
+    1. It's visually hidden by default (positioned off-screen via CSS)
+    2. When a keyboard user presses Tab, it appears at the top of the page
+    3. Pressing Enter jumps focus to the element with id="main-content"
+    
+    TRY IT: Refresh this page and press Tab — you'll see it appear!
+  -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!--
+    ┌──────────────────────────────────────────────────────────────────┐
+    │ SECTION 4: <header> — Site-wide Banner                         │
+    │                                                                │
+    │ The <header> element represents introductory content.          │
+    │ It typically contains:                                         │
+    │ • Site logo and title                                          │
+    │ • Navigation                                                   │
+    │ • Search form                                                  │
+    │                                                                │
+    │ NOTE: You can have multiple <header> elements in a document    │
+    │ (e.g., one for the site, one inside an <article>), but only    │
+    │ the top-level one is treated as a site banner by assistive     │
+    │ technology.                                                    │
+    │                                                                │
+    │ ARIA: role="banner" is implicit for top-level <header>.        │
+    │ We don't add it explicitly — that would be redundant.          │
+    └──────────────────────────────────────────────────────────────────┘
+  -->
+  <header class="site-header">
+    <h1>📄 The Ultimate HTML Learning Resource</h1>
+    <p>Learn HTML from scratch — every element explained, demonstrated, and documented.</p>
+  </header>
+
+  <!--
+    ┌──────────────────────────────────────────────────────────────────┐
+    │ SECTION 5: <nav> — Navigation                                  │
+    │                                                                │
+    │ The <nav> element wraps major navigation blocks.               │
+    │ Screen readers announce it as "navigation" so users know       │
+    │ they can skip it or use it to navigate.                        │
+    │                                                                │
+    │ BEST PRACTICES:                                                │
+    │ • Use aria-label to distinguish multiple <nav> elements        │
+    │   on the same page (e.g., "Main navigation" vs "Footer nav")  │
+    │ • Use <ul>/<li> for nav links — this tells screen readers      │
+    │   how many links there are ("list of 10 items")                │
+    │ • aria-current="page" marks the current page link              │
+    │                                                                │
+    │ COMMON MISTAKE: Don't wrap EVERY group of links in <nav>.      │
+    │ Only use it for major navigation blocks.                       │
+    └──────────────────────────────────────────────────────────────────┘
+  -->
+  <nav class="main-nav" aria-label="Main navigation">
+    <ul>
+      <li><a href="#hero" aria-current="page">Home</a></li>
+      <li><a href="#html-basics">Basics</a></li>
+      <li><a href="#text-formatting">Text</a></li>
+      <li><a href="#lists-section">Lists</a></li>
+      <li><a href="#tables-section">Tables</a></li>
+      <li><a href="#forms-section">Forms</a></li>
+      <li><a href="#multimedia-section">Media</a></li>
+      <li><a href="#interactive-section">Interactive</a></li>
+      <li><a href="#accessibility-section">A11y</a></li>
+      <li><a href="#seo-section">SEO</a></li>
+      <li><a href="#contact-section">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!--
+    ┌──────────────────────────────────────────────────────────────────┐
+    │ SECTION 6: <main> — The Primary Content Area                   │
+    │                                                                │
+    │ The <main> element contains the dominant content of the page.  │
+    │ There should be only ONE <main> per page.                      │
+    │                                                                │
+    │ WHY IT MATTERS:                                                │
+    │ • Screen readers can jump directly to <main> content           │
+    │ • It differentiates primary content from sidebars/navs/footers │
+    │ • The id="main-content" connects to our skip link above        │
+    │                                                                │
+    │ ARIA: role="main" is implicit — don't add it explicitly.       │
+    └──────────────────────────────────────────────────────────────────┘
+  -->
+  <main id="main-content">
+
+    <!-- ============================================================
+         HERO SECTION
+         A hero section introduces the page and its purpose.
+         This is not a semantic HTML element — it's a design pattern
+         created with a <section> element.
+         ============================================================ -->
+    <section id="hero" class="hero" aria-labelledby="hero-heading">
+      <h2 id="hero-heading">Learn HTML by Reading Real Code</h2>
+      <p>
+        This page is both a lesson and an example. Every element you see is
+        explained in the source code. Open <kbd>Ctrl</kbd>+<kbd>U</kbd>
+        (or <kbd>Cmd</kbd>+<kbd>Option</kbd>+<kbd>U</kbd> on Mac) to view the source.
+      </p>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║ SECTION 7: HTML BASICS — Core Building Blocks              ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <section id="html-basics" class="content-section" aria-labelledby="basics-heading">
+      <h2 id="basics-heading"><span class="section-number">1</span> HTML Basics — Core Building Blocks</h2>
+
+      <!--
+        PARAGRAPHS — <p>
+        The most basic text container. Browsers add default vertical spacing.
+        Use <p> for any block of text that forms a paragraph.
+        
+        COMMON MISTAKE: Don't use <br> tags to create spacing between text.
+        Use separate <p> elements instead.
+      -->
+      <h3>Paragraphs</h3>
+      <p>
+        <abbr title="HyperText Markup Language">HTML</abbr> is the standard markup language
+        for creating web pages. It describes the <em>structure</em> of content using a series
+        of elements that tell the browser how to display content.
+      </p>
+      <p>
+        Each HTML element consists of an opening tag, content, and a closing tag.
+        For example, <code>&lt;p&gt;Hello World&lt;/p&gt;</code> creates a paragraph containing "Hello World."
+      </p>
+
+      <div class="teaching-note">
+        <strong>📝 Learning Note:</strong> Notice how we used <code>&lt;abbr&gt;</code> for
+        "HTML" above. This element provides the full form of an abbreviation on hover,
+        improving accessibility and understanding.
+      </div>
+
+      <!--
+        HEADINGS — <h1> through <h6>
+        Headings create a document outline. They go from most important (h1)
+        to least important (h6).
+        
+        RULES:
+        • Only ONE <h1> per page (the main title)
+        • Don't skip levels (h1 → h3 without h2 is wrong)
+        • Don't use headings just to make text big — use CSS for that
+        • Screen readers use headings to navigate the page structure
+      -->
+      <h3>The Heading Hierarchy</h3>
+      <div class="example-box">
+        <div class="example-box-label">Live Example — Heading Levels</div>
+        <h1 style="font-size: 1.4rem; margin: 0.25rem 0;">h1 — Main Page Title (only one per page)</h1>
+        <h2 style="font-size: 1.2rem; margin: 0.25rem 0; border: none; color: inherit;">h2 — Major Section Heading</h2>
+        <h3 style="font-size: 1.05rem; margin: 0.25rem 0;">h3 — Subsection Heading</h3>
+        <h4 style="font-size: 0.95rem; margin: 0.25rem 0;">h4 — Sub-subsection</h4>
+        <h5 style="font-size: 0.88rem; margin: 0.25rem 0;">h5 — Fine Detail</h5>
+        <h6 style="font-size: 0.82rem; margin: 0.25rem 0;">h6 — Finest Detail (rarely used)</h6>
+      </div>
+
+      <div class="common-mistake">
+        <strong>❌ Common Mistake:</strong> Using <code>&lt;h3&gt;</code> just because it looks the right size.
+        Heading levels define <em>document structure</em>, not visual size. Use CSS for sizing!
+      </div>
+
+      <!--
+        LINKS — <a> (anchor element)
+        Links are the foundation of the web — they connect pages together.
+        
+        ATTRIBUTES:
+        • href: The URL the link points to (required for it to be a link)
+        • target="_blank": Opens in a new tab
+        • rel="noopener noreferrer": Security attributes for external links
+        • title: Additional info shown on hover (not a replacement for good link text!)
+        
+        ACCESSIBILITY: Link text should describe where the link goes.
+        "Click here" is bad. "Read the HTML specification" is good.
+      -->
+      <h3>Links — Connecting the Web</h3>
+      <p>Here are different types of links:</p>
+      <ul>
+        <li>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">
+            MDN HTML Documentation
+          </a> — External link (opens in new tab)
+        </li>
+        <li><a href="#forms-section">Jump to Forms Section</a> — Internal anchor link</li>
+        <li><a href="mailto:learn@example.com">learn@example.com</a> — Email link</li>
+        <li><a href="tel:+15551234567">+1 (555) 123-4567</a> — Phone link</li>
+        <li>
+          <a href="/documents/sample.pdf" download>Download the Sample PDF</a>
+          — Download link (the <code>download</code> attribute triggers a download instead of navigation)
+        </li>
+      </ul>
+
+      <div class="best-practice">
+        <strong>✅ Best Practice:</strong> Always add <code>rel="noopener noreferrer"</code>
+        when using <code>target="_blank"</code>. Without it, the opened page can access your
+        page's <code>window.opener</code> object — a security risk.
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║ SECTION 8: TEXT FORMATTING & INLINE SEMANTICS               ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <section id="text-formatting" class="content-section" aria-labelledby="text-heading">
+      <h2 id="text-heading"><span class="section-number">2</span> Text Formatting & Inline Semantics</h2>
+
+      <!--
+        TEXT-LEVEL SEMANTIC ELEMENTS
+        These elements give meaning to inline text. Each has a specific purpose.
+        
+        IMPORTANT DISTINCTION:
+        • <strong> = strong importance (not just bold)
+        • <b> = bring attention to (no extra importance)
+        • <em> = emphasis (not just italic)
+        • <i> = alternate voice/mood (not just italic)
+        
+        Screen readers may change tone of voice for <strong> and <em>.
+      -->
+
+      <h3>Semantic Inline Elements</h3>
+      <div class="example-box">
+        <div class="example-box-label">Live Examples — Each Has Different Meaning</div>
+        <p><strong>Strong importance</strong> — <code>&lt;strong&gt;</code> indicates this text is critically important.</p>
+        <p><em>Emphasized text</em> — <code>&lt;em&gt;</code> provides stress emphasis; screen readers change tone.</p>
+        <p><b>Brought to attention</b> — <code>&lt;b&gt;</code> visually bold without extra importance.</p>
+        <p><i>Alternate voice</i> — <code>&lt;i&gt;</code> for technical terms, foreign words, thoughts.</p>
+        <p><mark>Highlighted/marked text</mark> — <code>&lt;mark&gt;</code> for search results or relevance.</p>
+        <p><small>Small print</small> — <code>&lt;small&gt;</code> for disclaimers, copyright, fine print.</p>
+        <p><s>Strikethrough text</s> — <code>&lt;s&gt;</code> for content no longer accurate/relevant.</p>
+        <p><u>Unarticulated annotation</u> — <code>&lt;u&gt;</code> for proper names in Chinese, spelling errors.</p>
+        <p><code>Inline code</code> — <code>&lt;code&gt;</code> for code snippets.</p>
+        <p><kbd>Ctrl</kbd>+<kbd>C</kbd> — <code>&lt;kbd&gt;</code> for keyboard input.</p>
+        <p><samp>Error: file not found</samp> — <code>&lt;samp&gt;</code> for computer output.</p>
+        <p><var>x</var> = <var>y</var> + 2 — <code>&lt;var&gt;</code> for mathematical or programming variables.</p>
+        <p>H<sub>2</sub>O and E=mc<sup>2</sup> — <code>&lt;sub&gt;</code> and <code>&lt;sup&gt;</code> for subscript/superscript.</p>
+        <p><ins>Inserted text</ins> and <del>deleted text</del> — <code>&lt;ins&gt;</code>/<code>&lt;del&gt;</code> for edit tracking.</p>
+        <p><abbr title="World Wide Web Consortium">W3C</abbr> — <code>&lt;abbr&gt;</code> with title for abbreviations.</p>
+        <p><cite>The HTML Living Standard</cite> — <code>&lt;cite&gt;</code> for titles of creative works.</p>
+        <p><dfn>Semantic HTML</dfn> means using HTML elements for their intended purpose. — <code>&lt;dfn&gt;</code> for definitions.</p>
+      </div>
+
+      <!--
+        PREFORMATTED TEXT & CODE BLOCKS
+        <pre> preserves whitespace and line breaks.
+        Combined with <code>, it's perfect for code examples.
+      -->
+      <h3>Preformatted Text &amp; Code Blocks</h3>
+      <pre><code>&lt;!-- This is how a basic HTML page looks --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;This is my first web page.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      <!--
+        BLOCKQUOTE — For quotations from external sources
+        • Use <blockquote> for block-level quotes
+        • Use <q> for inline quotes (browser adds quotation marks)
+        • The cite attribute references the source URL
+        • <footer> inside blockquote identifies the speaker/source
+      -->
+      <h3>Quotations</h3>
+      <blockquote cite="https://www.w3.org/TR/html52/">
+        <p>
+          HTML is the World Wide Web's core markup language. Originally, HTML was
+          primarily designed as a language for semantically describing scientific documents.
+        </p>
+        <footer>— <cite>W3C HTML Specification</cite></footer>
+      </blockquote>
+      <p>As Tim Berners-Lee once said, <q cite="https://www.w3.org/People/Berners-Lee/">The Web is more a social creation than a technical one.</q></p>
+
+      <div class="teaching-note">
+        <strong>📝 Learning Note:</strong> The <code>&lt;q&gt;</code> element automatically adds quotation
+        marks appropriate to the document's language. Don't add your own quotes around it!
+      </div>
+
+      <!--
+        HORIZONTAL RULE — <hr>
+        A thematic break between sections. It's NOT just a visual line.
+        Use it to separate topics within a section.
+      -->
+      <hr style="margin: 2rem 0; border: none; border-top: 2px solid #e2e8f0;">
+
+      <!--
+        LINE BREAKS & SPECIAL WHITESPACE
+        <br> forces a line break. Use it sparingly — only where line breaks
+        are part of the content (poems, addresses), not for spacing.
+        <wbr> suggests where a word can break if needed.
+      -->
+      <h3>Line Breaks &amp; Special Text</h3>
+      <p>
+        Line breaks are appropriate for addresses or poetry:<br>
+        123 Web Developer Lane<br>
+        Internet City, WWW 12345
+      </p>
+      <p>
+        The <code>&lt;wbr&gt;</code> element suggests break points in long words:
+        super<wbr>cali<wbr>fragilistic<wbr>expiali<wbr>docious
+      </p>
+
+      <!--
+        THE <time> ELEMENT — Machine-readable dates
+        The datetime attribute provides the date in ISO 8601 format,
+        which machines (search engines, browsers) can understand.
+      -->
+      <h3>Dates &amp; Times</h3>
+      <p>
+        This resource was published on
+        <time datetime="2024-01-01">January 1, 2024</time>
+        and last updated on
+        <time datetime="2024-12-01T14:30:00Z">December 1, 2024 at 2:30 PM UTC</time>.
+      </p>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║ SECTION 9: LISTS — Organizing Information                   ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <section id="lists-section" class="content-section" aria-labelledby="lists-heading">
+      <h2 id="lists-heading"><span class="section-number">3</span> Lists — Organizing Information</h2>
+
+      <!--
+        UNORDERED LIST — <ul>
+        For items where order doesn't matter.
+        Screen readers announce: "list, 4 items"
+      -->
+      <h3>Unordered List <span class="code-label">&lt;ul&gt;</span></h3>
+      <p>Use when the order of items doesn't matter:</p>
+      <ul>
+        <li>HTML — Structure</li>
+        <li>CSS — Presentation</li>
+        <li>JavaScript — Behavior</li>
+        <li>Accessibility — Inclusiveness</li>
+      </ul>
+
+      <!--
+        ORDERED LIST — <ol>
+        For items where sequence matters.
+        Attributes:
+        • start: Change the starting number
+        • reversed: Count backwards
+        • type: Numbering style (1, A, a, I, i)
+      -->
+      <h3>Ordered List <span class="code-label">&lt;ol&gt;</span></h3>
+      <p>Use when the order matters (steps, rankings):</p>
+      <ol>
+        <li>Open a text editor</li>
+        <li>Write your HTML code</li>
+        <li>Save the file as <code>.html</code></li>
+        <li>Open in a web browser</li>
+      </ol>
+
+      <p>With custom start and reversed:</p>
+      <ol start="5" reversed type="1">
+        <li>Final step (numbered 5)</li>
+        <li>Fourth step</li>
+        <li>Third step</li>
+      </ol>
+
+      <!--
+        NESTED LISTS — Lists inside lists
+        Proper nesting: the child <ul>/<ol> goes INSIDE the parent <li>.
+        
+        COMMON MISTAKE: Putting a <ul> as a direct child of another <ul>.
+        The nested list must be inside an <li>.
+      -->
+      <h3>Nested Lists</h3>
+      <ul>
+        <li>
+          Frontend Technologies
+          <ul>
+            <li>HTML</li>
+            <li>CSS
+              <ul>
+                <li>Flexbox</li>
+                <li>Grid</li>
+              </ul>
+            </li>
+            <li>JavaScript</li>
+          </ul>
+        </li>
+        <li>
+          Backend Technologies
+          <ul>
+            <li>Node.js</li>
+            <li>Python</li>
+          </ul>
+        </li>
+      </ul>
+
+      <!--
+        DESCRIPTION LIST — <dl>
+        Perfect for glossaries, metadata, key-value pairs.
+        • <dt> = term being defined
+        • <dd> = definition/description
+        
+        A single <dt> can have multiple <dd> elements (multiple definitions).
+      -->
+      <h3>Description List <span class="code-label">&lt;dl&gt;</span></h3>
+      <p>Perfect for glossaries, metadata, and key-value pairs:</p>
+      <dl>
+        <dt>Semantic HTML</dt>
+        <dd>Using HTML elements according to their intended meaning, not just their visual appearance.</dd>
+
+        <dt>Accessibility (a11y)</dt>
+        <dd>The practice of making websites usable by as many people as possible, including those with disabilities.</dd>
+        <dd>Often abbreviated as "a11y" (a + 11 characters + y).</dd>
+
+        <dt>SEO</dt>
+        <dd>Search Engine Optimization — techniques to improve a website's visibility in search results.</dd>
+
+        <dt>Responsive Design</dt>
+        <dd>An approach where web pages render well on a variety of devices and screen sizes.</dd>
+      </dl>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║ SECTION 10: TABLES — Displaying Tabular Data                ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <section id="tables-section" class="content-section" aria-labelledby="tables-heading">
+      <h2 id="tables-heading"><span class="section-number">4</span> Tables — Displaying Tabular Data</h2>
+
+      <!--
+        TABLES — <table>
+        
+        Tables should ONLY be used for tabular data — NEVER for layout.
+        
+        PROPER TABLE STRUCTURE:
+        • <caption>  — Describes the table (like a title)
+        • <thead>    — Groups header rows
+        • <tbody>    — Groups body rows
+        • <tfoot>    — Groups footer rows (summaries, totals)
+        • <th>       — Header cells (use scope="col" or scope="row")
+        • <td>       — Data cells
+        
+        ACCESSIBILITY:
+        • <caption> is announced by screen readers before the table
+        • scope="col" tells screen readers this header applies to the column
+        • scope="row" tells screen readers this header applies to the row
+        • For complex tables, use id/headers attributes
+      -->
+
+      <h3>Properly Structured Data Table</h3>
+      <div style="overflow-x: auto;">
+        <table>
+          <caption>HTML Element Categories and Their Common Elements</caption>
+          <thead>
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Elements</th>
+              <th scope="col">Purpose</th>
+              <th scope="col">Display</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Sectioning</th>
+              <td><code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code></td>
+              <td>Define page structure and landmarks</td>
+              <td>Block</td>
+            </tr>
+            <tr>
+              <th scope="row">Content</th>
+              <td><code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;aside&gt;</code></td>
+              <td>Group related content</td>
+              <td>Block</td>
+            </tr>
+            <tr>
+              <th scope="row">Text</th>
+              <td><code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code>, <code>&lt;blockquote&gt;</code></td>
+              <td>Structure text content</td>
+              <td>Block</td>
+            </tr>
+            <tr>
+              <th scope="row">Inline</th>
+              <td><code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;code&gt;</code></td>
+              <td>Mark up phrases within text</td>
+              <td>Inline</td>
+            </tr>
+            <tr>
+              <th scope="row">Forms</th>
+              <td><code>&lt;form&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;textarea&gt;</code></td>
+              <td>Collect user input</td>
+              <td>Varies</td>
+            </tr>
+            <tr>
+              <th scope="row">Media</th>
+              <td><code>&lt;img&gt;</code>, <code>&lt;video&gt;</code>, <code>&lt;audio&gt;</code>, <code>&lt;canvas&gt;</code></td>
+              <td>Embed rich media content</td>
+              <td>Inline / Block</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4" style="text-align: center; font-style: italic; color: #64748b;">
+                This is a <code>&lt;tfoot&gt;</code> — used for table summaries and totals. 6 categories shown above.
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <!--
+        TABLE WITH COLSPAN AND ROWSPAN
+        • colspan: Makes a cell span multiple columns
+        • rowspan: Makes a cell span multiple rows
+      -->
+      <h3>Table with Column &amp; Row Spanning</h3>
+      <div style="overflow-x: auto;">
+        <table>
+          <caption>Weekly Study Schedule</caption>
+          <thead>
+            <tr>
+              <th scope="col">Time</th>
+              <th scope="col">Monday</th>
+              <th scope="col">Tuesday</th>
+              <th scope="col">Wednesday</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">9:00 AM</th>
+              <td rowspan="2">HTML Basics (2 hrs)</td>
+              <td>CSS Fundamentals</td>
+              <td>JavaScript Intro</td>
+            </tr>
+            <tr>
+              <th scope="row">10:00 AM</th>
+              <!-- This cell is "covered" by the rowspan above -->
+              <td colspan="2">Practical Project Work (covers both columns)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="common-mistake">
+        <strong>❌ Common Mistake:</strong> Using tables for page layout. Tables are for <strong>data only</strong>.
+        Use CSS Flexbox or Grid for layout. Using tables for layout breaks screen readers and
+        makes your HTML semantically incorrect.
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║ SECTION 11: FORMS & INPUT TYPES                             ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <section id="forms-section" class="content-section" aria-labelledby="forms-heading">
+      <h2 id="forms-heading"><span class="section-number">5</span> Forms &amp; Input Types</h2>
+
+      <!--
+        FORMS — <form>
+        Forms collect user input and send it to a server.
+        
+        KEY ATTRIBUTES:
+        • action: URL to send form data to
+        • method: HTTP method (GET for search/filter, POST for submitting data)
+        • novalidate: Disable browser validation (useful during development)
+        • autocomplete: Enable/disable form autofill
+        
+        STRUCTURE BEST PRACTICES:
+        • Group related fields with <fieldset> + <legend>
+        • ALWAYS associate labels with inputs (for="input-id")
+        • Use appropriate input types for built-in validation
+        • Include proper error messages
+        • Make the submit button clear and descriptive
+        
+        ACCESSIBILITY:
+        • Every input MUST have a label (either <label> or aria-label)
+        • Use aria-describedby for help text and error messages
+        • Use aria-required="true" for required fields
+        • Use aria-invalid="true" for fields with errors
+      -->
+
+      <form action="/submit" method="POST" autocomplete="on" novalidate>
+
+        <!--
+          FIELDSET & LEGEND
+          <fieldset> groups related inputs visually and semantically.
+          <legend> acts as the group's label — screen readers announce it
+          before each field in the group.
+          
+          Example: For radio buttons asking "What is your experience level?",
+          the <legend> provides context for each option.
+        -->
+        <fieldset>
+          <legend>Personal Information</legend>
+
+          <div class="form-grid">
+            <div>
+              <!--
+                TEXT INPUT — The most basic input type
+                • for="first-name" connects this label to the input with id="first-name"
+                • Clicking the label focuses the input (important for accessibility!)
+                • required: Browser won't submit form without this field
+                • autocomplete: Tells browser what kind of data this is for autofill
+                • placeholder: Hint text (disappears on focus — NOT a label replacement!)
+              -->
+              <label for="first-name">First Name <span aria-hidden="true" style="color: #ef4444;">*</span></label>
+              <input
+                type="text"
+                id="first-name"
+                name="first_name"
+                required
+                autocomplete="given-name"
+                placeholder="e.g., Jane"
+                minlength="2"
+                maxlength="50"
+                aria-required="true"
+                aria-describedby="first-name-help"
+              >
+              <small id="first-name-help" style="color: #64748b; font-size: 0.8rem;">2-50 characters required</small>
+            </div>
+
+            <div>
+              <label for="last-name">Last Name <span aria-hidden="true" style="color: #ef4444;">*</span></label>
+              <input
+                type="text"
+                id="last-name"
+                name="last_name"
+                required
+                autocomplete="family-name"
+                placeholder="e.g., Smith"
+                aria-required="true"
+              >
+            </div>
+          </div>
+
+          <!--
+            EMAIL INPUT — type="email"
+            Browsers validate email format automatically.
+            Mobile devices show an email-optimized keyboard (with @ key).
+          -->
+          <label for="email">Email Address <span aria-hidden="true" style="color: #ef4444;">*</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            autocomplete="email"
+            placeholder="you@example.com"
+            aria-required="true"
+          >
+
+          <!--
+            TEL INPUT — type="tel"
+            Doesn't validate format (phone formats vary worldwide),
+            but triggers a numeric keypad on mobile devices.
+            Use the pattern attribute to enforce a specific format.
+          -->
+          <label for="phone">Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            autocomplete="tel"
+            placeholder="+1 (555) 000-0000"
+            pattern="[+]?[0-9\s\-\(\)]+"
+            aria-describedby="phone-help"
+          >
+          <small id="phone-help" style="color: #64748b; font-size: 0.8rem;">
+            Format: +1 (555) 000-0000 (optional)
+          </small>
+
+          <!--
+            URL INPUT — type="url"
+            Validates that the value is a valid URL format.
+          -->
+          <label for="website">Website</label>
+          <input
+            type="url"
+            id="website"
+            name="website"
+            placeholder="https://example.com"
+            autocomplete="url"
+          >
+        </fieldset>
+
+        <fieldset>
+          <legend>Account Details</legend>
+
+          <!--
+            PASSWORD INPUT — type="password"
+            • Masks the input with dots
+            • minlength/maxlength: Enforce password length requirements
+            • pattern: Regex for password complexity (at least 1 uppercase, 1 number)
+          -->
+          <label for="password">Password <span aria-hidden="true" style="color: #ef4444;">*</span></label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            minlength="8"
+            maxlength="128"
+            aria-required="true"
+            aria-describedby="password-help"
+          >
+          <small id="password-help" style="color: #64748b; font-size: 0.8rem;">
+            Minimum 8 characters. Include letters and numbers.
+          </small>
+
+          <!--
+            DATE INPUT — type="date"
+            Shows a native date picker in supporting browsers.
+            Format is always YYYY-MM-DD internally, but displayed
+            according to the user's locale.
+          -->
+          <label for="birthdate">Date of Birth</label>
+          <input
+            type="date"
+            id="birthdate"
+            name="birthdate"
+            min="1900-01-01"
+            max="2010-12-31"
+            autocomplete="bday"
+          >
+
+          <!--
+            NUMBER INPUT — type="number"
+            Shows increment/decrement buttons. Good for numeric values.
+            • min/max: Set the allowed range
+            • step: Set the increment (0.01 for currency, etc.)
+          -->
+          <label for="experience">Years of Experience</label>
+          <input
+            type="number"
+            id="experience"
+            name="experience"
+            min="0"
+            max="50"
+            step="1"
+            value="0"
+          >
+        </fieldset>
+
+        <fieldset>
+          <legend>Preferences</legend>
+
+          <!--
+            SELECT (Dropdown) — <select>
+            • <optgroup> groups related options with a label
+            • <option> defines each selectable item
+            • The first option with empty value serves as a placeholder
+            • Use "multiple" attribute to allow multiple selections
+          -->
+          <label for="skill-level">Skill Level</label>
+          <select id="skill-level" name="skill_level" required aria-required="true">
+            <option value="" disabled selected>— Choose your level —</option>
+            <optgroup label="Beginner">
+              <option value="absolute-beginner">Absolute Beginner</option>
+              <option value="novice">Novice (some exposure)</option>
+            </optgroup>
+            <optgroup label="Intermediate">
+              <option value="intermediate">Intermediate</option>
+              <option value="upper-intermediate">Upper Intermediate</option>
+            </optgroup>
+            <optgroup label="Advanced">
+              <option value="advanced">Advanced</option>
+              <option value="expert">Expert</option>
+            </optgroup>
+          </select>
+
+          <!--
+            DATALIST — Autocomplete suggestions for text inputs
+            Combines free text input with suggested options.
+            Unlike <select>, users can type anything — suggestions are optional.
+          -->
+          <label for="favorite-element">Favorite HTML Element</label>
+          <input type="text" id="favorite-element" name="favorite_element" list="html-elements" placeholder="Start typing...">
+          <datalist id="html-elements">
+            <option value="<header>">
+            <option value="<nav>">
+            <option value="<main>">
+            <option value="<article>">
+            <option value="<section>">
+            <option value="<aside>">
+            <option value="<footer>">
+            <option value="<figure>">
+            <option value="<details>">
+            <option value="<dialog>">
+          </datalist>
+
+          <!--
+            RADIO BUTTONS — <input type="radio">
+            • All radios in a group share the same "name" attribute
+            • Only ONE can be selected at a time
+            • The <fieldset> + <legend> provides the group question
+          -->
+          <fieldset style="margin-top: 0.5rem;">
+            <legend>How do you prefer to learn?</legend>
+            <div>
+              <label style="display: inline; font-weight: normal;">
+                <input type="radio" name="learning_style" value="reading" checked>
+                Reading documentation
+              </label>
+            </div>
+            <div>
+              <label style="display: inline; font-weight: normal;">
+                <input type="radio" name="learning_style" value="video">
+                Watching videos
+              </label>
+            </div>
+            <div>
+              <label style="display: inline; font-weight: normal;">
+                <input type="radio" name="learning_style" value="practice">
+                Hands-on practice
+              </label>
+            </div>
+            <div>
+              <label style="display: inline; font-weight: normal;">
+                <input type="radio" name="learning_style" value="all">
+                All of the above
+              </label>
+            </div>
+          </fieldset>
+
+          <!--
+            CHECKBOXES — <input type="checkbox">
+            Unlike radio buttons, multiple checkboxes can be selected.
+            Each should still have its own <label>.
+          -->
+          <fieldset style="margin-top: 0.5rem;">
+            <legend>Topics of Interest (select all that apply)</legend>
+            <div>
+              <label style="display: inline; font-weight: normal;">
+                <input type="checkbox" name="topics" value="html"> HTML
+              </label>
+            </div>
+            <div>
+              <label style="display: inline; font-weight: normal;">
+                <input type="checkbox" name="topics" value="css"> CSS
+              </label>
+            </div>
+            <div>
+              <label style="display: inline; font-weight: normal;">
+                <input type="checkbox" name="topics" value="js" checked> JavaScript
+              </label>
+            </div>
+            <div>
+              <label style="display: inline; font-weight: normal;">
+                <input type="checkbox" name="topics" value="a11y"> Accessibility
+              </label>
+            </div>
+          </fieldset>
+        </fieldset>
+
+        <fieldset>
+          <legend>Additional Input Types</legend>
+
+          <div class="form-grid">
+            <!--
+              RANGE INPUT — type="range"
+              A slider control. Good for approximate values.
+              Pair with <output> to show the current value.
+            -->
+            <div>
+              <label for="confidence">Confidence Level: <output id="confidence-output">50</output>%</label>
+              <input
+                type="range"
+                id="confidence"
+                name="confidence"
+                min="0"
+                max="100"
+                value="50"
+                step="5"
+                oninput="document.getElementById('confidence-output').textContent = this.value"
+                style="width: 100%;"
+              >
+            </div>
+
+            <!--
+              COLOR INPUT — type="color"
+              Shows a color picker. Value is always in #rrggbb format.
+            -->
+            <div>
+              <label for="fav-color">Favorite Color</label>
+              <input
+                type="color"
+                id="fav-color"
+                name="favorite_color"
+                value="#3b82f6"
+                style="height: 2.5rem; padding: 0.25rem;"
+              >
+            </div>
+
+            <!--
+              SEARCH INPUT — type="search"
+              Similar to text but may have a clear button and
+              search-specific keyboard on mobile.
+            -->
+            <div>
+              <label for="search-input">Search</label>
+              <input
+                type="search"
+                id="search-input"
+                name="search"
+                placeholder="Search topics..."
+                aria-label="Search topics"
+              >
+            </div>
+
+            <!--
+              DATETIME-LOCAL INPUT — type="datetime-local"
+              Date and time picker without timezone.
+            -->
+            <div>
+              <label for="meeting-time">Preferred Meeting Time</label>
+              <input
+                type="datetime-local"
+                id="meeting-time"
+                name="meeting_time"
+              >
+            </div>
+
+            <!--
+              FILE INPUT — type="file"
+              Allows users to select files from their device.
+              • accept: Limits file types (MIME types or extensions)
+              • multiple: Allow selecting multiple files
+            -->
+            <div>
+              <label for="resume">Upload Resume (PDF only)</label>
+              <input
+                type="file"
+                id="resume"
+                name="resume"
+                accept=".pdf,application/pdf"
+                aria-describedby="file-help"
+              >
+              <small id="file-help" style="color: #64748b; font-size: 0.8rem;">Max file size: 5MB</small>
+            </div>
+
+            <!--
+              HIDDEN INPUT — type="hidden"
+              Not visible to users but submitted with the form.
+              Common uses: CSRF tokens, form IDs, tracking data.
+            -->
+            <input type="hidden" name="form_id" value="learning-resource-signup">
+            <input type="hidden" name="submitted_at" value="">
+          </div>
+        </fieldset>
+
+        <!--
+          TEXTAREA — Multi-line text input
+          • rows/cols: Initial dimensions (CSS is preferred for sizing)
+          • maxlength: Limit character count
+          • Pair with a character counter for better UX
+        -->
+        <fieldset>
+          <legend>Comments</legend>
+          <label for="comments">Your Message</label>
+          <textarea
+            id="comments"
+            name="comments"
+            rows="4"
+            maxlength="500"
+            placeholder="Tell us what you'd like to learn..."
+            aria-describedby="comments-help"
+          ></textarea>
+          <small id="comments-help" style="color: #64748b; font-size: 0.8rem;">
+            Maximum 500 characters
+          </small>
+        </fieldset>
+
+        <!--
+          FORM BUTTONS
+          • type="submit": Submits the form (default if no type specified)
+          • type="reset": Resets all fields to their default values
+          • type="button": Does nothing by default — use with JavaScript
+          
+          BEST PRACTICE: Always specify the type attribute on buttons.
+          A <button> without type defaults to "submit", which can cause
+          accidental form submissions.
+        -->
+        <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+          <button type="submit">Submit Application</button>
+          <button type="reset" style="background: #6b7280;">Reset Form</button>
+          <button type="button" style="background: #059669;" onclick="alert('This is a JavaScript action triggered by a button with type=button.')">Preview (JS Action)</button>
+        </div>
+      </form>
+
+      <div class="best-practice">
+        <strong>✅ Best Practice:</strong> Every <code>&lt;input&gt;</code> needs a <code>&lt;label&gt;</code>.
+        The <code>for</code> attribute on the label must match the <code>id</code> on the input.
+        This is non-negotiable for accessibility — screen readers depend on it.
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║ SECTION 12: MULTIMEDIA — Images, Audio, Video               ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <section id="multimedia-section" class="content-section" aria-labelledby="multimedia-heading">
+      <h2 id="multimedia-heading"><span class="section-number">6</span> Multimedia — Images, Audio &amp; Video</h2>
+
+      <!--
+        IMAGES — <img>
+        
+        The <img> element embeds images. It's a VOID element (no closing tag).
+        
+        REQUIRED ATTRIBUTES:
+        • src: The image URL
+        • alt: Alternative text (CRITICAL for accessibility)
+        
+        ALT TEXT RULES:
+        • Describe the image's content and function
+        • If the image is decorative, use alt="" (empty, not missing)
+        • Don't start with "Image of..." or "Picture of..."
+        • Keep it concise but descriptive
+        • If the image contains important text, include that text in alt
+        
+        OPTIONAL BUT RECOMMENDED:
+        • width/height: Prevents layout shift while loading
+        • loading="lazy": Defers loading until image is near viewport
+        • decoding="async": Lets browser decode image without blocking
+      -->
+      <h3>Images with Proper Accessibility</h3>
+
+      <!--
+        FIGURE & FIGCAPTION
+        <figure> wraps self-contained content (images, diagrams, code).
+        <figcaption> provides a caption — announced by screen readers.
+        
+        NOTE: figcaption is different from alt text:
+        • alt text: Describes the image for those who can't see it
+        • figcaption: Provides additional context (visible to everyone)
+      -->
+      <figure>
+        <img
+          src="https://picsum.photos/seed/html-learning/800/400"
+          alt="A colorful abstract placeholder image demonstrating the img element with proper attributes"
+          width="800"
+          height="400"
+          loading="lazy"
+          decoding="async"
+          style="max-width: 100%; height: auto; border-radius: 0.5rem;"
+        >
+        <figcaption>
+          Figure 1: A sample image demonstrating <code>&lt;figure&gt;</code>,
+          <code>&lt;figcaption&gt;</code>, and proper <code>alt</code> text usage.
+          Image provided by <a href="https://picsum.photos" target="_blank" rel="noopener noreferrer">Lorem Picsum</a>.
+        </figcaption>
+      </figure>
+
+      <!--
+        RESPONSIVE IMAGES — <picture> and srcset
+        
+        <picture> lets you serve different images for different conditions:
+        • Different screen sizes (art direction)
+        • Different image formats (WebP with JPEG fallback)
+        • Different pixel densities (retina displays)
+        
+        The <source> elements are tried in order. The browser uses the
+        first one whose conditions match. The <img> at the end is the fallback.
+      -->
+      <h3>Responsive Images with <span class="code-label">&lt;picture&gt;</span></h3>
+      <div class="teaching-note">
+        <strong>📝 Learning Note:</strong> The <code>&lt;picture&gt;</code> element allows you to
+        provide multiple image sources for different scenarios. The browser picks the best one.
+      </div>
+      <figure>
+        <picture>
+          <!-- Serve WebP format for browsers that support it (smaller file size) -->
+          <source
+            type="image/webp"
+            srcset="https://picsum.photos/seed/responsive/600/300.webp"
+          >
+          <!-- Fallback for all other browsers -->
+          <img
+            src="https://picsum.photos/seed/responsive/600/300"
+            alt="Responsive image example showing how picture element provides format fallbacks"
+            width="600"
+            height="300"
+            loading="lazy"
+            style="max-width: 100%; height: auto; border-radius: 0.5rem;"
+          >
+        </picture>
+        <figcaption>Figure 2: A <code>&lt;picture&gt;</code> element with WebP source and JPEG fallback.</figcaption>
+      </figure>
+
+      <!--
+        VIDEO — <video>
+        
+        ATTRIBUTES:
+        • controls: Shows play/pause, volume, fullscreen controls
+        • poster: Image shown before video plays
+        • preload: How much to load initially (none, metadata, auto)
+        • width/height: Dimensions of the video player
+        • muted: Start muted
+        • loop: Repeat automatically
+        • playsinline: Play inline on iOS (vs fullscreen)
+        
+        ACCESSIBILITY:
+        • Always include <track> for subtitles/captions
+        • Provide a text transcript as a fallback
+        • Don't autoplay with sound (it's intrusive and an a11y issue)
+        
+        FALLBACK:
+        • Text between <video> tags shows for browsers without support
+        • Multiple <source> elements provide format fallbacks
+      -->
+      <h3>Video with Captions</h3>
+      <figure>
+        <video
+          controls
+          width="600"
+          preload="metadata"
+          poster="https://picsum.photos/seed/video-poster/600/340"
+          style="max-width: 100%; height: auto; border-radius: 0.5rem; background: #000;"
+          playsinline
+        >
+          <!-- Provide multiple formats for browser compatibility -->
+          <source src="sample-video.mp4" type="video/mp4">
+          <source src="sample-video.webm" type="video/webm">
+
+          <!--
+            TRACK — Subtitles, captions, and descriptions
+            • kind="subtitles": Translation of dialogue
+            • kind="captions": Transcription (includes sound effects)
+            • kind="descriptions": Describes visual content for blind users
+            • srclang: Language of the track
+            • default: Use this track by default
+          -->
+          <track
+            kind="captions"
+            src="captions-en.vtt"
+            srclang="en"
+            label="English Captions"
+            default
+          >
+          <track
+            kind="subtitles"
+            src="subtitles-es.vtt"
+            srclang="es"
+            label="Subtítulos en Español"
+          >
+
+          <!-- Fallback content for browsers that don't support <video> -->
+          <p>
+            Your browser does not support the HTML video element.
+            <a href="sample-video.mp4">Download the video</a> instead.
+          </p>
+        </video>
+        <figcaption>
+          Figure 3: Video element with multiple sources, captions track, and fallback text.
+          (No actual video file is linked — this demonstrates the proper HTML structure.)
+        </figcaption>
+      </figure>
+
+      <!--
+        AUDIO — <audio>
+        Similar to <video> but for audio content only.
+        Same attributes apply: controls, preload, loop, muted.
+      -->
+      <h3>Audio Player</h3>
+      <figure>
+        <audio controls preload="metadata" style="width: 100%;">
+          <source src="sample-audio.mp3" type="audio/mpeg">
+          <source src="sample-audio.ogg" type="audio/ogg">
+          <source src="sample-audio.wav" type="audio/wav">
+
+          <!-- Fallback -->
+          <p>
+            Your browser does not support the audio element.
+            <a href="sample-audio.mp3">Download the audio file</a>.
+          </p>
+        </audio>
+        <figcaption>
+          Figure 4: Audio element with multiple format sources and download fallback.
+        </figcaption>
+      </figure>
+
+      <!--
+        INLINE SVG — Scalable Vector Graphics embedded directly in HTML
+        SVG images scale without losing quality (unlike JPEG/PNG).
+        Embedding SVG inline allows CSS styling and JavaScript interaction.
+      -->
+      <h3>Inline SVG Example</h3>
+      <figure>
+        <svg width="200" height="120" viewBox="0 0 200 120" role="img" aria-labelledby="svg-title svg-desc" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: 0 auto;">
+          <title id="svg-title">HTML5 Badge</title>
+          <desc id="svg-desc">A simplified shield-shaped badge containing the text HTML5 in white on an orange background.</desc>
+          <rect x="10" y="5" width="180" height="110" rx="12" fill="#e34c26"/>
+          <text x="100" y="55" text-anchor="middle" fill="white" font-size="24" font-weight="bold" font-family="system-ui">HTML5</text>
+          <text x="100" y="85" text-anchor="middle" fill="#ffffffcc" font-size="14" font-family="system-ui">Learn by doing</text>
+        </svg>
+        <figcaption>
+          Figure 5: Inline SVG with proper <code>role="img"</code> and <code>aria-labelledby</code>
+          for accessibility. SVGs embedded in HTML can be styled with CSS and animated with JavaScript.
+        </figcaption>
+      </figure>
+
+      <div class="best-practice">
+        <strong>✅ Best Practice:</strong> Always provide text alternatives for multimedia.
+        Images need <code>alt</code>, videos need <code>&lt;track&gt;</code> captions,
+        audio needs transcripts, and SVGs need <code>&lt;title&gt;</code> and <code>&lt;desc&gt;</code>.
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║ SECTION 13: INTERACTIVE ELEMENTS                            ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <section id="interactive-section" class="content-section" aria-labelledby="interactive-heading">
+      <h2 id="interactive-heading"><span class="section-number">7</span> Interactive Elements</h2>
+
+      <!--
+        DETAILS & SUMMARY — Native accordion/disclosure widget
+        
+        No JavaScript required! The browser handles open/close behavior.
+        • <summary> is the clickable header (always visible)
+        • Content inside <details> but outside <summary> is toggled
+        • The "open" attribute makes it start expanded
+        
+        ACCESSIBILITY: Fully accessible out of the box.
+        Screen readers announce it as "disclosure triangle" or "details".
+      -->
+      <h3>Details &amp; Summary (Native Accordion)</h3>
+
+      <details>
+        <summary>What is semantic HTML? (Click to expand)</summary>
+        <div>
+          <p>
+            Semantic HTML means using HTML elements for their intended purpose.
+            For example, using <code>&lt;nav&gt;</code> for navigation instead of
+            <code>&lt;div class="nav"&gt;</code>.
+          </p>
+          <p>
+            <strong>Benefits:</strong> Better accessibility, better SEO, easier maintenance,
+            and cleaner code.
+          </p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Why is accessibility important?</summary>
+        <div>
+          <p>
+            About 15% of the world's population has some form of disability.
+            Accessible websites ensure everyone can access information equally.
+            It's also a legal requirement in many countries.
+          </p>
+        </div>
+      </details>
+
+      <details open>
+        <summary>This one starts open (the "open" attribute)</summary>
+        <div>
+          <p>
+            Adding the <code>open</code> attribute to <code>&lt;details&gt;</code>
+            makes it expanded by default. Users can still toggle it closed.
+          </p>
+        </div>
+      </details>
+
+      <!--
+        DIALOG — Native modal/popup element
+        
+        The <dialog> element creates accessible modals WITHOUT JavaScript hacks.
+        • showModal(): Opens as a modal (with backdrop, traps focus)
+        • show(): Opens as a non-modal popup
+        • close(): Closes the dialog
+        
+        ACCESSIBILITY BENEFITS:
+        • Automatically traps keyboard focus inside the dialog
+        • Pressing Escape closes it
+        • Screen readers announce it properly
+        • The ::backdrop pseudo-element creates the overlay
+        
+        WHY use <dialog> over DIVs? Because DIVs can't:
+        • Trap focus automatically
+        • Be closed with Escape
+        • Create a proper backdrop
+        • Be announced as a dialog by screen readers
+      -->
+      <h3>Dialog (Native Modal)</h3>
+      <button type="button" onclick="document.getElementById('demo-dialog').showModal()" style="margin: 0.5rem 0;">
+        Open Demo Dialog
+      </button>
+
+      <dialog id="demo-dialog" class="dialog-box">
+        <h3 style="margin-top: 0; color: #1e40af;">This is a Native HTML Dialog</h3>
+        <p>
+          The <code>&lt;dialog&gt;</code> element creates accessible modal windows
+          without any JavaScript libraries. It automatically:
+        </p>
+        <ul>
+          <li>Traps keyboard focus inside the dialog</li>
+          <li>Closes when pressing <kbd>Escape</kbd></li>
+          <li>Creates a backdrop overlay</li>
+          <li>Restores focus to the trigger button when closed</li>
+        </ul>
+        <form method="dialog" style="margin-top: 1rem;">
+          <!--
+            method="dialog" on a form inside <dialog>
+            closes the dialog when the form is submitted.
+            The button's value becomes the dialog's returnValue.
+          -->
+          <button type="submit" value="understood">Close Dialog</button>
+        </form>
+      </dialog>
+
+      <!--
+        PROGRESS — Shows completion status of a task
+        • max: The maximum value (completion = 100%)
+        • value: Current progress
+        • Without value, it shows an indeterminate state (animated)
+      -->
+      <h3>Progress Bar</h3>
+      <label for="course-progress">Course Progress:</label>
+      <progress id="course-progress" value="70" max="100">70%</progress>
+      <p><small>70% complete — text between the tags is fallback for older browsers.</small></p>
+
+      <label for="loading-progress">Loading (indeterminate):</label>
+      <progress id="loading-progress">Loading...</progress>
+      <p><small>No value attribute = indeterminate (animated) progress bar.</small></p>
+
+      <!--
+        METER — Shows a measurement within a known range
+        Different from progress! Meter is for gauges (disk usage, temperature).
+        
+        ATTRIBUTES:
+        • min/max: The full range
+        • low: Below this is considered low
+        • high: Above this is considered high
+        • optimum: The ideal value (affects color in some browsers)
+        • value: Current measurement
+        
+        The browser may color the meter bar differently based on whether
+        the value is in the low, medium, or high range.
+      -->
+      <h3>Meter (Gauge)</h3>
+      <label for="disk-usage">Disk Usage:</label>
+      <meter id="disk-usage" min="0" max="100" low="25" high="75" optimum="20" value="68">
+        68 out of 100 GB used
+      </meter>
+      <p><small>68 GB of 100 GB used — meter shows yellow because value (68) is in the "high" range.</small></p>
+
+      <label for="battery-level">Battery Level:</label>
+      <meter id="battery-level" min="0" max="100" low="20" high="80" optimum="90" value="92">
+        92%
+      </meter>
+      <p><small>92% — meter shows green because value is above "high" threshold and near optimum.</small></p>
+
+      <!--
+        OUTPUT — Represents the result of a calculation
+        Often paired with <input> elements in a form.
+        The for attribute links it to the inputs it depends on.
+      -->
+      <h3>Output Element</h3>
+      <form oninput="result.value = parseInt(num1.value) + parseInt(num2.value)">
+        <label for="num1">Number 1:</label>
+        <input type="number" id="num1" name="num1" value="10" style="width: 100px; display: inline-block;">
+        <span aria-hidden="true"> + </span>
+        <label for="num2">Number 2:</label>
+        <input type="number" id="num2" name="num2" value="20" style="width: 100px; display: inline-block;">
+        <span aria-hidden="true"> = </span>
+        <output name="result" for="num1 num2" style="font-weight: bold; font-size: 1.2rem;">30</output>
+      </form>
+
+      <div class="teaching-note">
+        <strong>📝 Learning Note:</strong> <code>&lt;progress&gt;</code> vs <code>&lt;meter&gt;</code>:
+        Use <strong>progress</strong> for tasks being completed (loading bars, form steps).
+        Use <strong>meter</strong> for measurements within a known range (disk usage, scores, temperatures).
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║ SECTION 14: SEMANTIC HTML — Using Elements for Meaning       ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <section id="semantic-section" class="content-section" aria-labelledby="semantic-heading">
+      <h2 id="semantic-heading"><span class="section-number">8</span> Semantic HTML — Elements for Meaning</h2>
+
+      <p>
+        Semantic HTML means choosing elements based on <em>what they represent</em>,
+        not how they look. Here's a practical demonstration:
+      </p>
+
+      <!--
+        ARTICLE — Self-contained composition
+        
+        The <article> element represents content that makes sense on its own:
+        • Blog posts
+        • News articles
+        • Forum posts
+        • Product cards
+        • Comments
+        
+        TEST: Would this content make sense if syndicated in an RSS feed
+        or shared independently? If yes, use <article>.
+        
+        An <article> can contain its own <header> and <footer>.
+      -->
+      <article style="border: 1px solid #e2e8f0; border-radius: 0.5rem; padding: 1.5rem; margin: 1rem 0;">
+        <header>
+          <h3>Understanding the <span class="code-label">&lt;article&gt;</span> Element</h3>
+          <p style="color: #64748b; font-size: 0.85rem;">
+            Published on <time datetime="2024-06-15">June 15, 2024</time>
+            by <span>HTML Expert</span>
+          </p>
+        </header>
+
+        <p>
+          This is an <code>&lt;article&gt;</code> element. It represents a self-contained
+          composition — content that could stand alone and still make sense.
+          Blog posts, news articles, and forum posts are perfect use cases.
+        </p>
+
+        <!--
+          ASIDE — Tangentially related content
+          
+          <aside> is for content related to the surrounding content but not
+          essential to understanding it. Think:
+          • Sidebars
+          • Pull quotes
+          • Related links
+          • Glossary terms
+          • Ads (yes, ads are tangential content!)
+          
+          Inside an <article>, <aside> relates to that article.
+          Outside any <article>, <aside> relates to the whole page.
+        -->
+        <aside class="sidebar-note">
+          <strong>💡 Did you know?</strong> This is an <code>&lt;aside&gt;</code> inside an
+          <code>&lt;article&gt;</code>. It provides supplementary information related to
+          the article's content — like a sidebar note in a textbook.
+        </aside>
+
+        <p>
+          The <code>&lt;article&gt;</code> can contain its own <code>&lt;header&gt;</code>
+          and <code>&lt;footer&gt;</code>, creating a self-contained document structure.
+        </p>
+
+        <footer style="border-top: 1px solid #e2e8f0; padding-top: 0.75rem; margin-top: 1rem; font-size: 0.85rem; color: #64748b;">
+          <p>Tags: <a href="#semantic-section">semantic</a>, <a href="#html-basics">html5</a>, <a href="#accessibility-section">accessibility</a></p>
+        </footer>
+      </article>
+
+      <!--
+        SECTION vs. DIV vs. ARTICLE — When to use each?
+        
+        • <section>: A thematic grouping of content with a heading
+          Use when content forms a distinct section of a larger document.
+        
+        • <article>: Self-contained content that could stand alone
+          Use when content makes sense independently (could be syndicated).
+        
+        • <div>: No semantic meaning — a generic container
+          Use ONLY when no semantic element fits, usually for CSS styling.
+        
+        RULE OF THUMB:
+        - Does it need a heading? → <section>
+        - Is it self-contained? → <article>
+        - Is it just for styling? → <div>
+      -->
+
+      <div class="teaching-note">
+        <strong>📝 When to use which?</strong>
+        <br><code>&lt;div&gt;</code> — Has NO semantic meaning. Use ONLY when no semantic element fits. Generic container for styling.
+        <br><code>&lt;section&gt;</code> — Groups related content with a heading. A thematic grouping within a page.
+        <br><code>&lt;article&gt;</code> — Self-contained content. Would make sense syndicated in an RSS feed.
+        <br><code>&lt;aside&gt;</code> — Tangentially related. Think sidebar, pull-quote, related links.
+      </div>
+
+      <!--
+        ADDRESS — Contact information
+        
+        Despite the name, <address> is NOT just for postal addresses.
+        It's for contact information related to the nearest <article>
+        or <body> ancestor.
+        
+        Can contain: name, email, phone, social links, physical address.
+        Should NOT contain: random text, dates, unrelated info.
+      -->
+      <h3>The <span class="code-label">&lt;address&gt;</span> Element</h3>
+      <address>
+        <strong>HTML Education Project</strong><br>
+        Contact: <a href="mailto:learn@example.com">learn@example.com</a><br>
+        Phone: <a href="tel:+15551234567">+1 (555) 123-4567</a><br>
+        123 Web Developer Lane, Internet City
+      </address>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║ SECTION 15: ACCESSIBILITY (a11y) FEATURES                   ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <section id="accessibility-section" class="content-section" aria-labelledby="a11y-heading">
+      <h2 id="a11y-heading"><span class="section-number">9</span> Accessibility — Making the Web for Everyone</h2>
+
+      <p>
+        Accessibility (abbreviated <dfn>a11y</dfn> — "a" + 11 letters + "y") means designing
+        websites that can be used by everyone, including people with disabilities.
+        About <strong>1.3 billion people</strong> worldwide experience significant disability.
+      </p>
+
+      <!--
+        ARIA — Accessible Rich Internet Applications
+        
+        ARIA attributes add semantic information that HTML elements don't
+        provide natively. They're essential for dynamic web applications.
+        
+        THE FIRST RULE OF ARIA: Don't use ARIA if a native HTML element
+        already provides the semantics you need.
+        
+        <button> is better than <div role="button">
+        <nav> is better than <div role="navigation">
+        
+        COMMON ARIA ATTRIBUTES:
+        • aria-label: Provides a label when no visible text label exists
+        • aria-labelledby: Points to the ID of the element that labels this
+        • aria-describedby: Points to additional descriptive text
+        • aria-hidden: Hides element from screen readers (but still visible)
+        • aria-live: Announces dynamic content changes
+        • aria-expanded: Indicates if a collapsible element is open
+        • aria-current: Indicates the current item in a set
+        • aria-required: Indicates a required form field
+        • aria-invalid: Indicates an invalid form field
+        • role: Defines what the element IS (button, alert, tab, etc.)
+      -->
+
+      <h3>ARIA Attributes Demonstration</h3>
+
+      <!-- aria-label: Used when the visual content isn't descriptive enough -->
+      <div class="example-box">
+        <div class="example-box-label">ARIA Label Examples</div>
+
+        <!-- Button with icon only — needs aria-label because there's no visible text -->
+        <button type="button" aria-label="Close dialog" style="font-size: 1.5rem; background: #dc2626; padding: 0.25rem 0.75rem;">
+          ✕
+        </button>
+        <small style="display: block; margin: 0.25rem 0 1rem; color: #64748b;">
+          This button has no visible text, so <code>aria-label="Close dialog"</code> tells screen readers its purpose.
+        </small>
+
+        <!-- Navigation with aria-label to distinguish from other nav elements -->
+        <nav aria-label="Pagination" style="margin: 1rem 0;">
+          <ul style="display: flex; list-style: none; gap: 0.5rem; padding: 0;">
+            <li><a href="#" aria-label="Go to page 1" style="padding: 0.5rem 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.25rem; text-decoration: none;">1</a></li>
+            <li><a href="#" aria-label="Go to page 2" aria-current="page" style="padding: 0.5rem 0.75rem; border: 1px solid #2563eb; border-radius: 0.25rem; text-decoration: none; background: #2563eb; color: white;">2</a></li>
+            <li><a href="#" aria-label="Go to page 3" style="padding: 0.5rem 0.75rem; border: 1px solid #cbd5e1; border-radius: 0.25rem; text-decoration: none;">3</a></li>
+          </ul>
+        </nav>
+        <small style="color: #64748b;">Pagination uses <code>aria-label</code> on each link and <code>aria-current="page"</code> on the current page.</small>
+      </div>
+
+      <!--
+        ARIA LIVE REGIONS — Announce dynamic content changes
+        
+        When content on the page changes dynamically (via JavaScript),
+        screen readers won't notice unless you tell them.
+        
+        aria-live values:
+        • "polite": Announce when the user is idle (most common)
+        • "assertive": Interrupt and announce immediately (use sparingly)
+        • "off": Don't announce
+        
+        aria-atomic: Whether to announce the entire region or just changes
+      -->
+      <h3>Live Regions (Dynamic Announcements)</h3>
+      <div class="example-box">
+        <div class="example-box-label">Live Region Demo</div>
+        <button type="button" onclick="updateNotification()">
+          Click to update notification
+        </button>
+        <div
+          id="notification-area"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          style="padding: 0.75rem; margin-top: 0.75rem; background: #dbeafe; border-radius: 0.375rem; min-height: 2.5rem;"
+        >
+          Notification messages will appear here when the button is clicked.
+        </div>
+        <small style="color: #64748b; display: block; margin-top: 0.25rem;">
+          <code>aria-live="polite"</code> makes screen readers announce changes to this region.
+        </small>
+      </div>
+
+      <!--
+        ACCESSIBILITY BEST PRACTICES CHECKLIST
+        Demonstrating this as a list also shows good list usage.
+      -->
+      <h3>Accessibility Checklist</h3>
+      <div class="best-practice">
+        <strong>✅ Key Accessibility Practices Demonstrated on This Page:</strong>
+        <ul>
+          <li><strong>Skip navigation link</strong> — Lets keyboard users bypass repetitive navigation</li>
+          <li><strong>Semantic HTML</strong> — Screen readers use elements like <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code> as landmarks</li>
+          <li><strong>Language declaration</strong> — <code>lang="en"</code> on the <code>&lt;html&gt;</code> element</li>
+          <li><strong>Heading hierarchy</strong> — Logical h1→h2→h3 structure for navigation</li>
+          <li><strong>Alt text on images</strong> — Every <code>&lt;img&gt;</code> has descriptive <code>alt</code></li>
+          <li><strong>Form labels</strong> — Every input has an associated <code>&lt;label&gt;</code></li>
+          <li><strong>Color is not the only indicator</strong> — Information isn't conveyed by color alone</li>
+          <li><strong>Keyboard navigation</strong> — All interactive elements are keyboard accessible</li>
+          <li><strong>Focus indicators</strong> — Visible <code>:focus-visible</code> styles on interactive elements</li>
+          <li><strong>ARIA attributes</strong> — Used where native HTML semantics aren't sufficient</li>
+          <li><strong>Captions/tracks</strong> — Video and audio include caption tracks</li>
+        </ul>
+      </div>
+
+      <div class="common-mistake">
+        <strong>❌ Common Accessibility Mistakes:</strong>
+        <ul>
+          <li>Using <code>&lt;div onclick="..."&gt;</code> instead of <code>&lt;button&gt;</code> (divs aren't keyboard focusable)</li>
+          <li>Missing <code>alt</code> attribute on images (screen readers may read the file name instead)</li>
+          <li>Using placeholder text as the only label (placeholders disappear on focus)</li>
+          <li>Low color contrast (text must have at least 4.5:1 contrast ratio)</li>
+          <li>Removing focus outlines with <code>outline: none</code> without providing an alternative</li>
+          <li>Using ARIA when a native HTML element would work (the first rule of ARIA!)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║ SECTION 16: SEO ELEMENTS & STRUCTURED DATA                  ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <section id="seo-section" class="content-section" aria-labelledby="seo-heading">
+      <h2 id="seo-heading"><span class="section-number">10</span> SEO — Search Engine Optimization</h2>
+
+      <p>
+        <dfn><abbr title="Search Engine Optimization">SEO</abbr></dfn> is the practice of
+        making your website more visible in search engine results. Good HTML structure is the
+        foundation of good SEO.
+      </p>
+
+      <!--
+        SEO THROUGH HTML STRUCTURE
+        Many SEO practices are just good HTML practices:
+        • Semantic elements help search engines understand content
+        • Headings create a document outline
+        • Alt text makes images findable
+        • Meta tags provide page information
+      -->
+
+      <h3>HTML Elements That Help SEO</h3>
+      <div class="example-box">
+        <div class="example-box-label">SEO-Relevant HTML Elements (Already Used on This Page)</div>
+        <dl>
+          <dt><code>&lt;title&gt;</code></dt>
+          <dd>The most important on-page SEO element. Appears in search results as the clickable headline.</dd>
+
+          <dt><code>&lt;meta name="description"&gt;</code></dt>
+          <dd>Provides the snippet text shown below the title in search results.</dd>
+
+          <dt><code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code></dt>
+          <dd>Search engines use headings to understand content hierarchy and topic importance.</dd>
+
+          <dt><code>&lt;a&gt;</code> with descriptive text</dt>
+          <dd>Link text tells search engines what the linked page is about. "Click here" tells them nothing.</dd>
+
+          <dt><code>&lt;img alt="..."&gt;</code></dt>
+          <dd>Alt text makes images indexable and helps them appear in image search results.</dd>
+
+          <dt><code>&lt;link rel="canonical"&gt;</code></dt>
+          <dd>Tells search engines the "official" URL, preventing duplicate content issues.</dd>
+
+          <dt><code>&lt;time datetime="..."&gt;</code></dt>
+          <dd>Machine-readable dates help search engines understand content freshness.</dd>
+
+          <dt>Structured Data (JSON-LD)</dt>
+          <dd>Schema.org markup helps search engines create rich snippets (stars, FAQs, breadcrumbs).</dd>
+        </dl>
+      </div>
+
+      <!--
+        STRUCTURED DATA EXAMPLE — FAQ Schema
+        This type of structured data can create expandable FAQ results in Google.
+        We include it as a script in the <head>, but here we'll explain it.
+      -->
+      <h3>Structured Data with Schema.org</h3>
+      <div class="teaching-note">
+        <strong>📝 Learning Note:</strong> We included JSON-LD structured data in the
+        <code>&lt;head&gt;</code> of this document. Search engines read this machine-readable data
+        to understand the page better. Check the <code>&lt;script type="application/ld+json"&gt;</code>
+        section in the source code.
+      </div>
+
+      <!--
+        MICRODATA — Inline structured data
+        An alternative to JSON-LD. Attributes are added directly to HTML elements.
+        • itemscope: Starts a new item
+        • itemtype: The Schema.org type
+        • itemprop: Names a property of the item
+        
+        JSON-LD (in <head>) is generally preferred over microdata because
+        it separates data from markup. But microdata is useful to understand.
+      -->
+      <h3>Microdata Example (Inline Schema.org)</h3>
+      <div class="example-box" itemscope itemtype="https://schema.org/Course">
+        <div class="example-box-label">Schema.org Course Markup (inspect this in source)</div>
+        <h4 itemprop="name">HTML Fundamentals Course</h4>
+        <p itemprop="description">
+          A comprehensive introduction to HTML5 covering semantic elements,
+          forms, multimedia, accessibility, and SEO best practices.
+        </p>
+        <p>
+          Provider:
+          <span itemprop="provider" itemscope itemtype="https://schema.org/Organization">
+            <span itemprop="name">HTML Education Project</span>
+          </span>
+        </p>
+        <p>
+          Skill Level: <span itemprop="educationalLevel">Beginner</span> |
+          Language: <span itemprop="inLanguage">English</span>
+        </p>
+        <small style="color: #64748b;">
+          ↑ This section contains <code>itemscope</code>, <code>itemtype</code>, and <code>itemprop</code>
+          attributes — inspect the source to see microdata in action.
+        </small>
+      </div>
+
+      <div class="best-practice">
+        <strong>✅ SEO Best Practices Summary:</strong>
+        <ol>
+          <li>One <code>&lt;h1&gt;</code> per page that matches the <code>&lt;title&gt;</code></li>
+          <li>Descriptive, unique <code>&lt;title&gt;</code> for every page (under 60 chars)</li>
+          <li>Compelling <code>&lt;meta description&gt;</code> (150-160 chars)</li>
+          <li>Use semantic HTML — it's free SEO</li>
+          <li>Every image has meaningful <code>alt</code> text</li>
+          <li>Set <code>lang</code> attribute on <code>&lt;html&gt;</code></li>
+          <li>Use <code>&lt;link rel="canonical"&gt;</code> to prevent duplicates</li>
+          <li>Add structured data (JSON-LD) for rich search results</li>
+          <li>Make link text descriptive (avoid "click here")</li>
+          <li>Ensure the page is mobile-friendly (viewport meta tag)</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║ SECTION 17: EMBEDDED CONTENT                                ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <section id="embedded-section" class="content-section" aria-labelledby="embedded-heading">
+      <h2 id="embedded-heading"><span class="section-number">11</span> Embedded Content</h2>
+
+      <!--
+        IFRAME — Embeds another HTML page within the current page
+        
+        Common uses: YouTube videos, maps, third-party widgets
+        
+        SECURITY ATTRIBUTES:
+        • sandbox: Restricts what the embedded content can do
+          - "" (empty): Maximum restrictions
+          - "allow-scripts": Let it run JavaScript
+          - "allow-same-origin": Let it access its own origin's data
+        • allow: Feature policy (camera, microphone, etc.)
+        • loading="lazy": Don't load until visible
+        
+        ACCESSIBILITY:
+        • title: REQUIRED for screen readers to describe the iframe
+        
+        SECURITY NOTE: iframes can be a security risk. The sandbox attribute
+        restricts the embedded content's capabilities.
+      -->
+      <h3>Iframe — Embedding External Content</h3>
+      <figure>
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-0.13%2C51.50%2C-0.12%2C51.51&layer=mapnik"
+          width="100%"
+          height="300"
+          style="border: 2px solid #e2e8f0; border-radius: 0.5rem;"
+          loading="lazy"
+          title="Interactive OpenStreetMap showing central London"
+          sandbox="allow-scripts allow-same-origin"
+          referrerpolicy="no-referrer"
+        ></iframe>
+        <figcaption>
+          Figure 6: An embedded OpenStreetMap using <code>&lt;iframe&gt;</code>.
+          Note the <code>title</code>, <code>sandbox</code>, and <code>loading="lazy"</code> attributes.
+        </figcaption>
+      </figure>
+
+      <div class="teaching-note">
+        <strong>📝 Learning Note:</strong> The <code>sandbox</code> attribute is crucial for security.
+        Without it, the embedded page can run scripts, submit forms, open popups, and more.
+        Always sandbox iframes unless you have a specific reason not to.
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════════════════════════╗
+         ║ SECTION 18: CONTACT FORM                                    ║
+         ╚══════════════════════════════════════════════════════════════╝ -->
+    <section id="contact-section" class="content-section" aria-labelledby="contact-heading">
+      <h2 id="contact-heading"><span class="section-number">12</span> Contact Us</h2>
+
+      <p>
+        This section demonstrates a complete, accessible contact form
+        with proper validation attributes and ARIA support.
+      </p>
+
+      <!--
+        CONTACT FORM — Practical application of everything above
+        This form combines:
+        • Proper form structure
+        • Semantic fieldset/legend
+        • Label/input associations
+        • Client-side validation
+        • ARIA attributes
+        • Helpful error messaging
+      -->
+      <form action="/contact" method="POST" id="contact-form">
+        <fieldset>
+          <legend>Send Us a Message</legend>
+
+          <label for="contact-name">Your Name <span aria-hidden="true" style="color: #ef4444;">*</span></label>
+          <input
+            type="text"
+            id="contact-name"
+            name="name"
+            required
+            autocomplete="name"
+            aria-required="true"
+          >
+
+          <label for="contact-email">Your Email <span aria-hidden="true" style="color: #ef4444;">*</span></label>
+          <input
+            type="email"
+            id="contact-email"
+            name="email"
+            required
+            autocomplete="email"
+            aria-required="true"
+          >
+
+          <label for="contact-subject">Subject</label>
+          <select id="contact-subject" name="subject">
+            <option value="general">General Inquiry</option>
+            <option value="feedback">Feedback</option>
+            <option value="bug">Report a Bug</option>
+            <option value="suggestion">Suggestion</option>
+          </select>
+
+          <label for="contact-message">Message <span aria-hidden="true" style="color: #ef4444;">*</span></label>
+          <textarea
+            id="contact-message"
+            name="message"
+            rows="5"
+            required
+            aria-required="true"
+            placeholder="Type your message here..."
+          ></textarea>
+
+          <!--
+            TERMS CHECKBOX — A common pattern
+            Note: the label wraps the checkbox for easier clicking.
+          -->
+          <div style="margin: 1rem 0;">
+            <label style="display: inline; font-weight: normal; cursor: pointer;">
+              <input type="checkbox" name="agree" required aria-required="true">
+              I agree to the <a href="#" target="_blank">Terms of Service</a>
+              and <a href="#" target="_blank">Privacy Policy</a>
+              <span aria-hidden="true" style="color: #ef4444;">*</span>
+            </label>
+          </div>
+
+          <button type="submit">Send Message</button>
+        </fieldset>
+      </form>
+
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #64748b;">
+        <small>Fields marked with <span style="color: #ef4444;">*</span> are required.
+        This form doesn't actually submit — it's for educational demonstration.</small>
+      </p>
+    </section>
+
+  </main>
+  <!-- End of <main> — all primary content goes above this line -->
+
+  <!--
+    ┌──────────────────────────────────────────────────────────────────┐
+    │ SECTION 19: <footer> — Site Footer                             │
+    │                                                                │
+    │ The <footer> contains:                                         │
+    │ • Copyright information                                        │
+    │ • Sitemap / secondary navigation                               │
+    │ • Contact information                                          │
+    │ • Social media links                                           │
+    │ • Legal links (privacy, terms)                                 │
+    │                                                                │
+    │ ARIA: role="contentinfo" is implicit for the page-level footer. │
+    │ We add aria-label to the footer's <nav> to distinguish it      │
+    │ from the main navigation (multiple navs on one page).          │
+    └──────────────────────────────────────────────────────────────────┘
+  -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+
+      <!-- Sitemap Navigation -->
+      <div>
+        <h3>Sitemap</h3>
+        <nav aria-label="Footer navigation">
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#html-basics">HTML Basics</a></li>
+            <li><a href="#text-formatting">Text Formatting</a></li>
+            <li><a href="#lists-section">Lists</a></li>
+            <li><a href="#tables-section">Tables</a></li>
+            <li><a href="#forms-section">Forms</a></li>
+            <li><a href="#multimedia-section">Multimedia</a></li>
+            <li><a href="#interactive-section">Interactive</a></li>
+            <li><a href="#accessibility-section">Accessibility</a></li>
+            <li><a href="#seo-section">SEO</a></li>
+            <li><a href="#contact-section">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Resources -->
+      <div>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs</a></li>
+          <li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">HTML Living Standard</a></li>
+          <li><a href="https://validator.w3.org/" target="_blank" rel="noopener noreferrer">W3C Validator</a></li>
+          <li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener noreferrer">WCAG Guidelines</a></li>
+          <li><a href="https://web.dev/" target="_blank" rel="noopener noreferrer">web.dev by Google</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Information -->
+      <div>
+        <h3>Contact</h3>
+        <address>
+          <strong>HTML Education Project</strong><br>
+          <a href="mailto:learn@example.com">learn@example.com</a><br>
+          <a href="tel:+15551234567">+1 (555) 123-4567</a><br>
+          123 Web Developer Lane<br>
+          Internet City, WWW 12345
+        </address>
+      </div>
+
+      <!-- Social Links -->
+      <div>
+        <h3>Follow Us</h3>
+        <!--
+          Social links use aria-label because they might contain only icons.
+          rel="noopener noreferrer" is added for external link security.
+          rel="me" can be used for verified profile links.
+        -->
+        <ul>
+          <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">🐙 GitHub</a></li>
+          <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter profile">🐦 Twitter / X</a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">💼 LinkedIn</a></li>
+          <li><a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel">▶️ YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!--
+      COPYRIGHT & LEGAL
+      <small> is semantically correct here — it represents fine print.
+    -->
+    <hr style="border: none; border-top: 1px solid #475569; margin: 1.5rem 0;">
+    <div style="text-align: center;">
+      <small>
+        &copy; <time datetime="2024">2024</time> HTML Education Project.
+        Free for educational use.
+        Built with semantic HTML, accessibility, and love.
+        <br>
+        <a href="#">Privacy Policy</a> ·
+        <a href="#">Terms of Service</a> ·
+        <a href="#">Accessibility Statement</a>
+      </small>
+    </div>
+  </footer>
+
+  <!--
+    ┌──────────────────────────────────────────────────────────────────┐
+    │ SECTION 20: JAVASCRIPT                                         │
+    │                                                                │
+    │ JavaScript should be placed at the end of <body> or use        │
+    │ the "defer" attribute when in <head>.                          │
+    │                                                                │
+    │ WHY at the end?                                                │
+    │ • The HTML is parsed and rendered before scripts run           │
+    │ • Users see content faster                                     │
+    │ • Scripts can access all DOM elements without waiting          │
+    │                                                                │
+    │ ALTERNATIVE: <script defer src="script.js"></script> in <head> │
+    │ "defer" tells the browser to download the script in parallel   │
+    │ but execute it only after HTML parsing is complete.            │
+    └──────────────────────────────────────────────────────────────────┘
+  -->
+  <script>
+    // ─── Live Region Demo ──────────────────────────────────────────
+    // This function demonstrates aria-live regions.
+    // When content inside an aria-live region changes, screen readers
+    // announce the new content to the user.
+    let notificationCount = 0;
+    function updateNotification() {
+      notificationCount++;
+      const area = document.getElementById('notification-area');
+      const messages = [
+        'HTML is the foundation of the web!',
+        'Always use semantic elements when possible.',
+        'Accessibility benefits everyone, not just users with disabilities.',
+        'Good SEO starts with good HTML structure.',
+        'The <dialog> element replaces custom modal libraries!',
+        'Every image needs meaningful alt text.',
+        'Use <button> for actions and <a> for navigation.',
+        'Forms need labels — placeholders are not enough!'
+      ];
+      const message = messages[(notificationCount - 1) % messages.length];
+      area.textContent = `Tip #${notificationCount}: ${message}`;
+    }
+
+    // ─── Form Submission Prevention ────────────────────────────────
+    // Prevent actual form submissions since this is a demo page.
+    document.querySelectorAll('form').forEach(function(form) {
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert(
+          'Form submitted successfully! (This is a demo — no data was actually sent.)\n\n' +
+          'Form action: ' + (this.action || 'none') + '\n' +
+          'Form method: ' + (this.method || 'GET').toUpperCase()
+        );
+      });
+    });
+
+    // ─── Smooth Scrolling for Anchor Links ─────────────────────────
+    // Enhances navigation with smooth scrolling behavior.
+    // Note: CSS scroll-behavior: smooth could also be used, but
+    // JavaScript gives us more control.
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(event) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          event.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Set focus to the target for accessibility
+          target.setAttribute('tabindex', '-1');
+          target.focus({ preventScroll: true });
+        }
+      });
+    });
+
+    // ─── Set Hidden Timestamp ──────────────────────────────────────
+    // Sets the hidden form field with the current timestamp.
+    // This is a common pattern for tracking when forms were loaded.
+    const timestampField = document.querySelector('input[name="submitted_at"]');
+    if (timestampField) {
+      timestampField.value = new Date().toISOString();
+    }
+
+    // ─── Console Welcome Message ───────────────────────────────────
+    console.log(
+      '%c🎉 Welcome to The Ultimate HTML Learning Resource!',
+      'font-size: 16px; font-weight: bold; color: #1e40af;'
+    );
+    console.log(
+      '%cExplore the HTML source code to learn. Every element is documented!',
+      'font-size: 13px; color: #475569;'
+    );
+    console.log(
+      '%cTip: Use the Elements tab to inspect the DOM structure.',
+      'font-size: 13px; color: #059669;'
+    );
+  </script>
+
+</body>
+</html>
